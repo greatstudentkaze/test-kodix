@@ -1,5 +1,5 @@
 import React from "react";
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 import './css/fonts.css';
 
@@ -158,11 +158,20 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const StyledMain = styled.main`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
+
 const App = () => {
   return (
     <>
       <GlobalStyle />
-      <Button />
+      <StyledMain>
+        <Button />
+      </StyledMain>
     </>
   );
 }
