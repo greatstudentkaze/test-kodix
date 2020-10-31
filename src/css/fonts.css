@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "Lab Grotesque";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Lab Grotesque"),
+  url("../fonts/LabGrotesque-Regular.woff2") format("woff2"),
+  url("../fonts/LabGrotesque-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Lab Grotesque";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local("Lab Grotesque Light"),
+  url("../fonts/LabGrotesque-Light.woff2") format("woff2"),
+  url("../fonts/LabGrotesque-Light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Lab Grotesque";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local("Lab Grotesque Medium"),
+  url("../fonts/LabGrotesque-Medium.woff2") format("woff2"),
+  url("../fonts/LabGrotesque-Medium.woff") format("woff");
+}
