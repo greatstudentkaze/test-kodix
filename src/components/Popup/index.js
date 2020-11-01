@@ -11,17 +11,32 @@ const Overlay = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 998;
+  z-index: 997;
   
   display: flex;
   justify-content: center;
   align-items: center;
   
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: #ffffff;
+  
+  &::before {
+    content: "";
+    
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 998;
+    
+    background-color: rgba(0, 0, 0, 0.3);
+  }
 `;
 
 const StyledPopup = styled.section`
   position: relative;
+  z-index: 999;
+  
   width: 100%;
   height: 100%;
   padding: 32px 16px;
@@ -114,10 +129,10 @@ const CloseButton = styled.button`
   }
 `;
 
-const Popup = () => (
+const Popup = ({ hidePopup }) => (
   <Overlay>
     <StyledPopup>
-      <CloseButton type="button" aria-label="Закрыть" />
+      <CloseButton type="button" aria-label="Закрыть" onClick={hidePopup} />
       <h2>Налоговый вычет</h2>
       <Text>
         Используйте налоговый вычет чтобы погасить ипотеку досрочно. Размер налогового вычета составляет не более 13% от своего официального годового дохода.
