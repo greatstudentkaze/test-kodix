@@ -4,6 +4,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 import './css/fonts.css';
 
 import Button from './components/Button';
+import Popup from './components/Popup';
 
 const GlobalStyle = createGlobalStyle`
   // normalize
@@ -135,8 +136,12 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
     font-weight: normal;
   
-    background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #FF5E56;
+    background: linear-gradient(255.35deg, #dc3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #ff5e56;
     cursor: default;
+  
+    @media (min-width: 768px) {
+      background: #ffffff;
+    }
   }
   
   .visually-hidden:not(:focus):not(:active),
@@ -159,6 +164,8 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const StyledMain = styled.main`
+  position: relative;
+  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -170,7 +177,8 @@ const App = () => {
     <>
       <GlobalStyle />
       <StyledMain>
-        <Button />
+        <Button type="button" text="Налоговый вычет" />
+        <Popup />
       </StyledMain>
     </>
   );
