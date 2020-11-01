@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { createGlobalStyle } from 'styled-components';
 
 import './css/fonts.css';
@@ -138,10 +138,6 @@ const GlobalStyle = createGlobalStyle`
   
     background: linear-gradient(255.35deg, #dc3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #ff5e56;
     cursor: default;
-  
-    @media (min-width: 768px) {
-      background: #ffffff;
-    }
   }
   
   .visually-hidden:not(:focus):not(:active),
@@ -173,12 +169,17 @@ const StyledMain = styled.main`
 `;
 
 const App = () => {
+  const [isShowPopup, setIsShowPopup] = useState(false);
+
+  const hidePopup = () => setIsShowPopup(false);
+  const showPopup = () => setIsShowPopup(true);
+
   return (
     <>
       <GlobalStyle />
       <StyledMain>
-        <Button type="button" text="Налоговый вычет" />
-        <Popup />
+        <Button type="button" text="Налоговый вычет" handleClick={showPopup} />
+        {isShowPopup && <Popup hidePopup={hidePopup} />}
       </StyledMain>
     </>
   );
