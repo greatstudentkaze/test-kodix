@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyledForm, FormItem, FormLabel, FormButton } from './StyledFormComponents';
+import { StyledForm, FormItem, FormLabel } from './StyledFormComponents';
 
 import FormPayments from './FormPayments';
 import FormType from './FormType';
