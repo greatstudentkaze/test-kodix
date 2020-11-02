@@ -48,6 +48,14 @@ export const FormItem = styled.p`
       border-color: #ea0029;
     }
     
+    &::-webkit-input-placeholder {
+      color: #808080;
+    }
+    
+    &::placeholder {
+      color: #808080;
+    }
+    
   }
 `;
 
@@ -58,6 +66,17 @@ export const FormLabel = styled.label`
   font-size: 14px;
   line-height: 24px;
   font-weight: 500;
+`;
+
+export const FormInputError = styled.strong`
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 400;
+  color: #ea0029;
 `;
 
 export const StyledFormPayments = styled(FormGroup)`
