@@ -63,6 +63,19 @@ export const FormLabel = styled.label`
 export const StyledFormPayments = styled(FormGroup)`
   margin-bottom: 24px;
   
+  animation-name: show;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-in-out;
+  
+  @keyframes show {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
   legend {
     margin-bottom: 0;
   }
@@ -73,6 +86,19 @@ export const FormCheckbox = styled.p`
   padding: 16px 0;
   
   border-bottom: 1px solid #dfe3e6;
+  
+  animation-name: show;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-in-out;
+  
+  @keyframes show {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
   
   input[type=checkbox] + label {
     position: relative;
