@@ -11,16 +11,20 @@ const Overlay = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 997;
-  padding: 120px 0;
+  z-index: 998;
   
   background-color: rgba(0, 0, 0, 0.3);
   
-  overflow-y: scroll;
+  
+  @media (min-width: 768px) {
+    padding: 120px 0;
+    overflow-y: scroll;
+  }
 `;
 
 const StyledPopup = styled.section`
   position: relative;
+  
   z-index: 999;
   
   width: 100%;
@@ -29,8 +33,9 @@ const StyledPopup = styled.section`
   
   background-color: #ffffff;
   
+  overflow-y: scroll;
+  
   @media (min-width: 768px) {
-    top: 0px;
     left: 50%;
     transform: translateX(-50%);
   
@@ -39,6 +44,8 @@ const StyledPopup = styled.section`
     padding: 32px;
     
     border-radius: 30px;
+    
+    overflow-y: auto;
   }
   
   @media (min-width: 1440px) {
