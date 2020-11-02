@@ -33,6 +33,8 @@ export const FormItem = styled.p`
     border: 1px solid #dfe3e6;
     border-radius: 3px;
     outline: none;
+    box-shadow: none;
+    appearance: none;
     
     transition: 0.2s ease-out;
     
