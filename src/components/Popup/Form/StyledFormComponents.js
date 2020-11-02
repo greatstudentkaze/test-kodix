@@ -131,6 +131,14 @@ export const FormCheckbox = styled.p`
     }
   }
   
+  input[type=checkbox]:focus + label::before {
+    border-color: #000000;
+  }
+  
+  input[type=checkbox]:focus + label::after {
+    transform: scale(0.6);
+  }
+  
   input[type=checkbox]:active + label::before,
   input[type=checkbox]:checked + label::before {
     background: linear-gradient(255.35deg, #dc3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #ff5e56;
