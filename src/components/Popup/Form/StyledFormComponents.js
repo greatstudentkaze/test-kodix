@@ -98,7 +98,12 @@ export const StyledFormPayments = styled(FormGroup)`
   }
   
   legend {
+    max-width: 180px;
     margin-bottom: 0;
+    
+    @media (min-width: 768px) {
+      max-width: none;
+    }
   }
 `;
 
