@@ -166,6 +166,8 @@ const StyledMain = styled.main`
   justify-content: center;
   align-items: center;
   height: 100vh;
+  
+  background-color: ${props => props.isShowPopup ? '#ffffff' : 'transparent'};
 `;
 
 const App = () => {
@@ -177,7 +179,7 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      <StyledMain>
+      <StyledMain isShowPopup={isShowPopup}>
         <Button type="button" text="Налоговый вычет" handleClick={showPopup} />
         {isShowPopup && <Popup hidePopup={hidePopup} />}
       </StyledMain>

@@ -12,25 +12,11 @@ const Overlay = styled.div`
   bottom: 0;
   left: 0;
   z-index: 997;
+  padding: 120px 0;
   
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
   
-  background-color: #ffffff;
-  
-  &::before {
-    content: "";
-    
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 998;
-    
-    background-color: rgba(0, 0, 0, 0.3);
-  }
+  overflow-y: scroll;
 `;
 
 const StyledPopup = styled.section`
@@ -44,6 +30,10 @@ const StyledPopup = styled.section`
   background-color: #ffffff;
   
   @media (min-width: 768px) {
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+  
     max-width: 453px;
     height: auto;
     padding: 32px;
@@ -101,13 +91,18 @@ const CloseButton = styled.button`
   background-size: 12px 12px;
   background-position: center;
   border: none;
+  outline: none;
   
   cursor: pointer;
   transition: 0.2s ease-in-out;
   
   &:hover,
   &:focus {
-    transform: rotate(-90deg);
+    transform: rotate(-90deg) scale(0.9);
+  }
+  
+  &:focus {
+    opacity: 0.7;
   }
   
   &:active {
