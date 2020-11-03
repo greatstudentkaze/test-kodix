@@ -16,6 +16,16 @@ const Form = () => {
   const apartmentCost = 2000000;
   let taxDeductionAmount = getTaxDeductionAmount(apartmentCost);
 
+  const validateSalaryInput = salaryInput => {
+    if (!salaryInput.value) {
+      salaryInput.classList.add('error');
+      setIsShowInputError(true);
+    } else {
+      salaryInput.classList.remove('error');
+      setIsShowInputError(false);
+    }
+  };
+
   const handleCalculateBtnClick = () =>
     setEarlyPayments(getEarlyPayments(monthSalary, taxDeductionAmount, getEarlyPaymentAmount));
 
@@ -26,13 +36,7 @@ const Form = () => {
       setMonthSalary(salaryInput.value);
       setEarlyPayments([]);
 
-      if (!salaryInput.value) {
-        salaryInput.classList.add('error');
-        setIsShowInputError(true);
-      } else {
-        salaryInput.classList.remove('error');
-        setIsShowInputError(false);
-      }
+      validateSalaryInput(salaryInput);
     }
   }
 
@@ -41,15 +45,8 @@ const Form = () => {
     const form = evt.target,
       salaryInput = form.salary;
 
-    if (!salaryInput.value) {
-      setEarlyPayments([]);
-
-      salaryInput.classList.add('error');
-      setIsShowInputError(true);
-    } else {
-      salaryInput.classList.remove('error');
-      setIsShowInputError(false);
-    }
+    validateSalaryInput(salaryInput);
+    setEarlyPayments(getEarlyPayments(salaryInput, taxDeductionAmount, getEarlyPaymentAmount));
   }
 
   return (
