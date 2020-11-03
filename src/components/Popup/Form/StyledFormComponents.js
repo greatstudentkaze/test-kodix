@@ -103,6 +103,11 @@ export const CalculateButton = styled.button`
   &:active {
     color: #ea0029;
   }
+  
+  &:disabled {
+    color: #ea0029;
+    cursor: not-allowed;
+  }
 `;
 
 export const FormInputError = styled.strong`
