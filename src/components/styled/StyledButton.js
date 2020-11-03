@@ -31,12 +31,6 @@ const StyledButton = styled.button`
     filter: none;
   }
   
-  &:disabled {
-    color: #ffffff;
-    background-color: #bec5cc;
-    cursor: default;
-  }
-  
   ${({ theme }) => theme === 'red' && css`
     background: linear-gradient(255.35deg, #dc3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #ff5e56;
     box-shadow: 0 0 24px 0 #ea0029 33%;
@@ -47,9 +41,15 @@ const StyledButton = styled.button`
     &:focus,
     &:active {
       color: #ffffff;
-      background-color: #ea0029;
+      background: #ea0029;
     }
   `}
+  
+  &:disabled {
+    color: #ffffff;
+    background: #bec5cc;
+    cursor: not-allowed;
+  }
   
   @media (min-width: 768px) {
     padding: 15px 32px;
