@@ -46,7 +46,9 @@ const Form = () => {
       salaryInput = form.salary;
 
     validateSalaryInput(salaryInput);
-    setEarlyPayments(getEarlyPayments(salaryInput, taxDeductionAmount, getEarlyPaymentAmount));
+
+    console.log('Зарплата в месяц:', monthSalary);
+    console.log('Суммы возможных досрочных платежей:', earlyPayments);
   }
 
   return (
@@ -56,13 +58,14 @@ const Form = () => {
         <input type="text" id="salary" name="salary" placeholder="Введите данные" value={monthSalary} onChange={handleSalaryChange}/>
         {isShowInputError && <FormInputError>Поле обязательно для заполнения</FormInputError>}
         <CalculateButton
+          type="button"
           title="Зарплата должна быть не менее 10 000 рублей"
           onClick={handleCalculateBtnClick}
           disabled={monthSalary < 10000}>Рассчитать</CalculateButton>
       </FormItem>
       {earlyPayments.length !== 0 && <FormPayments earlyPayments={earlyPayments} />}
       <FormType />
-      <Button type="submit" text="Добавить" theme="red" />
+      <Button type="submit" text="Добавить" theme="red" disabled={monthSalary < 10000 && monthSalary !== ''} />
     </StyledForm>
   );
 };
