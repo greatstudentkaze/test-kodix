@@ -1,40 +1,19 @@
 import React from 'react';
 
 import { StyledFormPayments, FormLabel, FormCheckbox } from '../StyledFormComponents';
-import { getEarlyPaymentAmount, getTaxDeductionAmount } from '../../../utils';
+import { formatPrice } from '../../../utils';
 
-const FormPayments = ({ monthSalary }) => {
-  const apartmentCost = 2000000;
-  const earlyPayments = [];
-  let taxDeductionAmount = getTaxDeductionAmount(apartmentCost);
-
-  if (monthSalary < 10000) {
-    earlyPayments.length = 0;
-  } else {
-    let i = 1;
-
-    while (taxDeductionAmount) {
-      const earlyPaymentAmount = Math.round(getEarlyPaymentAmount(monthSalary, taxDeductionAmount));
-
-      earlyPayments.push(
-        <FormCheckbox key={i + earlyPaymentAmount}>
-          <input className="visually-hidden" type="checkbox" name={`payment-${i}`} id={`payment-${i}`}
-                 value={earlyPaymentAmount}/>
-          <FormLabel htmlFor={`payment-${i}`}>{earlyPaymentAmount} рублей <span>в {i}-ый год</span></FormLabel>
-        </FormCheckbox>
-      );
-
-      taxDeductionAmount -= earlyPaymentAmount;
-      i++;
-    }
-  }
-
-  return (
-    <StyledFormPayments>
-      <FormLabel as="legend">Итого можете внести в&nbsp;качестве досрочных:</FormLabel>
-      {earlyPayments.length > 0 ? earlyPayments : '0 рублей, Ваша зарплата должна быть не менее 10000'}
-    </StyledFormPayments>
-  );
-};
+const FormPayments = ({ earlyPayments }) => (
+  <StyledFormPayments>
+    <FormLabel as="legend">Итого можете внести в&nbsp;качестве досрочных:</FormLabel>
+    {earlyPayments.map((payment, i) =>
+      <FormCheckbox key={i + payment}>
+        <input className="visually-hidden" type="checkbox" name={`payment-${i + 1}`} id={`payment-${i + 1}`}
+               value={payment}/>
+        <FormLabel htmlFor={`payment-${i + 1}`}>{formatPrice(payment)} <span>в {i + 1}-ый год</span></FormLabel>
+      </FormCheckbox>
+    )}
+  </StyledFormPayments>
+);
 
 export default FormPayments;
