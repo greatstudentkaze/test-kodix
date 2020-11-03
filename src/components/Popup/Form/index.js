@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { StyledForm, FormItem, FormLabel, FormInputError } from './StyledFormComponents';
+import { StyledForm, FormItem, FormLabel, FormInputError, CalculateButton } from './StyledFormComponents';
 
 import FormPayments from './FormPayments';
 import FormType from './FormType';
@@ -48,6 +48,7 @@ const Form = () => {
         <FormLabel htmlFor="salary">Ваша зарплата в месяц</FormLabel>
         <input type="text" id="salary" name="salary" placeholder="Введите данные" value={monthSalary} onChange={handleSalaryChange}/>
         {isShowInputError && <FormInputError>Поле обязательно для заполнения</FormInputError>}
+        <CalculateButton>Рассчитать</CalculateButton>
       </FormItem>
       {monthSalary && <FormPayments monthSalary={monthSalary} />}
       <FormType />
