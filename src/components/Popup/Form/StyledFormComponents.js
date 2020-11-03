@@ -19,7 +19,11 @@ export const FormGroup = styled.fieldset`
 
 export const FormItem = styled.p`
   margin: 0;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
+  
+  @media (min-width: 768px) {
+    margin-bottom: 28px;
+  }
   
   input[type=text] {
     width: 100%;
@@ -57,7 +61,6 @@ export const FormItem = styled.p`
     &::placeholder {
       color: #808080;
     }
-    
   }
 `;
 
@@ -68,6 +71,38 @@ export const FormLabel = styled.label`
   font-size: 14px;
   line-height: 24px;
   font-weight: 500;
+`;
+
+export const CalculateButton = styled.button`
+  display: inline-block;
+  margin-top: 8px;
+  padding: 0;
+
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #ea0029;
+  vertical-align: top;
+  
+  background: none;
+  border: none;
+  outline: none;
+  
+  cursor: pointer;
+  transition: 0.2s ease-out;
+  
+  &:hover,
+  &:focus {
+    color: #f53a31;
+  }
+  
+  &:focus {
+    text-decoration: underline;
+  }
+  
+  &:active {
+    color: #ea0029;
+  }
 `;
 
 export const FormInputError = styled.strong`
@@ -82,11 +117,16 @@ export const FormInputError = styled.strong`
 `;
 
 export const StyledFormPayments = styled(FormGroup)`
+  margin-top: -8px;
   margin-bottom: 24px;
   
   animation-name: show;
   animation-duration: 0.4s;
   animation-timing-function: ease-in-out;
+  
+  @media (min-width: 768px) {
+    margin-top: -12px;
+  }  
   
   @keyframes show {
     0% {
@@ -220,6 +260,7 @@ export const StyledFormType = styled.div`
     margin-bottom: 24px;
   
     @media (min-width: 768px) {
+      margin-top: 12px;
       margin-bottom: 0;
       margin-right: 76px;
     }
