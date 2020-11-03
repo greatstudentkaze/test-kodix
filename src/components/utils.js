@@ -9,6 +9,8 @@ export const getEarlyPaymentAmount = (monthSalary, taxDeduction) =>
   taxDeduction > (monthSalary * 12) * 0.13 ? (monthSalary * 12) * 0.13 : taxDeduction;
 
 export const getEarlyPayments = (monthSalary, taxDeduction, getEarlyPaymentAmount) => {
+  if (!monthSalary) return [];
+
   const maxEarlyPayment = Math.round(getEarlyPaymentAmount(monthSalary, taxDeduction)),
     maxEarlyPaymentCount = Math.trunc(taxDeduction / maxEarlyPayment),
     lastPayment = Math.round(taxDeduction - maxEarlyPayment * maxEarlyPaymentCount);
