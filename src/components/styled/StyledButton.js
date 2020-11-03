@@ -33,7 +33,9 @@ const StyledButton = styled.button`
   
   ${({ theme }) => theme === 'red' && css`
     background: linear-gradient(255.35deg, #dc3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #ff5e56;
-    box-shadow: 0 0 24px 0 #ea0029 33%;
+    box-shadow: 0px 0px 24px rgba(234, 0, 41, 0.33);
+    
+    border-color: transparent;
     
     filter: none;
     
@@ -48,6 +50,7 @@ const StyledButton = styled.button`
   &:disabled {
     color: #ffffff;
     background: #bec5cc;
+    box-shadow: none;
     cursor: not-allowed;
   }
   
