@@ -137,6 +137,8 @@ const GlobalStyle = createGlobalStyle`
     font-weight: normal;
   
     background: linear-gradient(255.35deg, #dc3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #ff5e56;
+    background-repeat: no-repeat;
+    background-size: cover;
     cursor: default;
   }
   
