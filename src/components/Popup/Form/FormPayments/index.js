@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { StyledFormPayments, FormLabel, FormCheckbox } from '../StyledFormComponents';
-import { formatPrice } from '../../../utils';
+import { formatPrice, formatCurrency } from '../../../utils';
 
 const FormPayments = ({ earlyPayments }) => (
   <StyledFormPayments>
@@ -10,7 +10,7 @@ const FormPayments = ({ earlyPayments }) => (
       <FormCheckbox key={i + payment}>
         <input className="visually-hidden" type="checkbox" name={`payment-${i + 1}`} id={`payment-${i + 1}`}
                value={payment}/>
-        <FormLabel htmlFor={`payment-${i + 1}`}>{formatPrice(payment)} <span>в {i + 1}-ый год</span></FormLabel>
+        <FormLabel htmlFor={`payment-${i + 1}`}>{formatPrice(payment, formatCurrency)} <span>в {i + 1}-ый год</span></FormLabel>
       </FormCheckbox>
     )}
   </StyledFormPayments>
