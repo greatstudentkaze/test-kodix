@@ -232,8 +232,9 @@ export const FormCheckbox = styled.p`
     border-color: #000000;
   }
   
-  input[type=checkbox]:focus + label::after {
-    transform: scale(0.6);
+  input[type=checkbox]:focus-visible + label::after {
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #ea0029;
   }
   
   input[type=checkbox]:active + label::before,
@@ -249,6 +250,10 @@ export const FormCheckbox = styled.p`
   
   input[type=checkbox]:disabled + label::before {
     border-color: #bec5cc;
+  }
+  
+  label span {
+    color: #808080;
   }
 `;
 
